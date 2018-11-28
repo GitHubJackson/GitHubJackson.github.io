@@ -1322,7 +1322,7 @@ pre .javascript .function {
 }
 @media (min-width: 992px) {
   .posts-expand .post-body {
-    text-align: justify;
+    text-align: left;
   }
 }
 .posts-expand .post-body h2,
@@ -1371,6 +1371,10 @@ pre .javascript .function {
 }
 .posts-expand .post-body img {
   margin: 0 auto 25px;
+}
+.posts-expand .post-title,
+.posts-expand .post-meta {
+  text-align: center;
 }
 @media (max-width: 767px) {
   .posts-collapse {
@@ -1867,7 +1871,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff1675;
+  background: #fcfff4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2712,7 +2716,7 @@ hr {
 }
 .posts-expand .post-title,
 .posts-expand .post-meta {
-  text-align: center;
+  text-align: left;
 }
 @media (max-width: 767px) {
   .posts-expand .post-title,
@@ -2751,9 +2755,6 @@ hr {
 .posts-expand .post-title:hover:before {
   background: #222;
 }
-.posts-expand .post-body {
-  text-align: center;
-}
 @media (max-width: 767px) {
   .posts-expand .post-body {
     font-size: 14px;
@@ -2778,7 +2779,7 @@ hr {
 }
 .post-button {
   margin-top: 20px;
-  text-align: center;
+  text-align: left;
 }
 .post-button a {
   padding: 0;
