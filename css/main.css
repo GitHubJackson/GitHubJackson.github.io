@@ -1322,7 +1322,7 @@ pre .javascript .function {
 }
 @media (min-width: 992px) {
   .posts-expand .post-body {
-    text-align: left;
+    text-align: justify;
   }
 }
 .posts-expand .post-body h2,
@@ -1867,7 +1867,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4bd4c8;
+  background: #50bb4f;
 }
 .links-of-blogroll {
   font-size: 13px;
