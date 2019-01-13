@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
 <meta property="og:description" content="之前兼职做项目时，用了挺多浮动(float)，结果有些没消除，对后面的布局产生了影响，我前辈就跟我说，以后浮动用flex去实现就行，不要用float了。flex布局的确是CSS的布局利器，尤其是在移动端网页设计上。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-13T14:15:58.225Z">
+<meta property="og:updated_time" content="2019-01-13T14:17:59.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css利器--Flex布局">
 <meta name="twitter:description" content="之前兼职做项目时，用了挺多浮动(float)，结果有些没消除，对后面的布局产生了影响，我前辈就跟我说，以后浮动用flex去实现就行，不要用float了。flex布局的确是CSS的布局利器，尤其是在移动端网页设计上。">
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2019-01-13 22:14:39 / 修改时间：22:15:58" itemprop="dateCreated datePublished" datetime="2019-01-13T22:14:39+08:00">2019-01-13</time>
+              <time title="创建时间：2019-01-13 22:14:39 / 修改时间：22:17:59" itemprop="dateCreated datePublished" datetime="2019-01-13T22:14:39+08:00">2019-01-13</time>
             
 
             
@@ -514,7 +514,7 @@
 <li><strong>align-self</strong> 允许item有自己独特的在交叉轴上的对齐方式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">auto：和父元素align-self的值一致</span><br><span class="line">flex-start：顶端对齐</span><br><span class="line">flex-end：底部对齐</span><br><span class="line">center：竖直方向上居中对齐</span><br><span class="line">baseline：item第一行文字的底部对齐</span><br><span class="line">stretch：当item未设置高度时，item将和容器等高对齐</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h2><h3 id="用flex属性代替浮动布局"><a href="#用flex属性代替浮动布局" class="headerlink" title="用flex属性代替浮动布局"></a>用flex属性代替浮动布局</h3><ul>
+<h2 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h2><h3 id="用flex属性实现浮动"><a href="#用flex属性实现浮动" class="headerlink" title="用flex属性实现浮动"></a>用flex属性实现浮动</h3><ul>
 <li><p>左浮动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .parent &#123;</span><br><span class="line">        display:flex;</span><br><span class="line">    &#125;</span><br><span class="line">    .left &#123;width: 100px; background: red&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 </li>
@@ -831,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重点属性"><span class="nav-number">1.</span> <span class="nav-text">重点属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#父容器属性"><span class="nav-number">1.1.</span> <span class="nav-text">父容器属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目属性"><span class="nav-number">1.2.</span> <span class="nav-text">项目属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用实例"><span class="nav-number">2.</span> <span class="nav-text">应用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用flex属性代替浮动布局"><span class="nav-number">2.1.</span> <span class="nav-text">用flex属性代替浮动布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现水平垂直居中"><span class="nav-number">2.2.</span> <span class="nav-text">实现水平垂直居中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重点属性"><span class="nav-number">1.</span> <span class="nav-text">重点属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#父容器属性"><span class="nav-number">1.1.</span> <span class="nav-text">父容器属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目属性"><span class="nav-number">1.2.</span> <span class="nav-text">项目属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用实例"><span class="nav-number">2.</span> <span class="nav-text">应用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用flex属性实现浮动"><span class="nav-number">2.1.</span> <span class="nav-text">用flex属性实现浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现水平垂直居中"><span class="nav-number">2.2.</span> <span class="nav-text">实现水平垂直居中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
