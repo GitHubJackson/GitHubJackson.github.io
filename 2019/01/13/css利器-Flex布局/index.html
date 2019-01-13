@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
-<meta name="keywords" content="ES6,ES">
+  <meta name="description" content="之前兼职做项目时，用了挺多浮动(float)，结果有些没消除，对后面的布局产生了影响，我前辈就跟我说，以后浮动用flex去实现就行，不要用float了。flex布局的确是CSS的布局利器，尤其是在移动端网页设计上。">
+<meta name="keywords" content="flex,布局">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6常用语法">
-<meta property="og:url" content="http://yoursite.com/2018/12/17/ES6常用语法/index.html">
+<meta property="og:title" content="css利器--Flex布局">
+<meta property="og:url" content="http://yoursite.com/2019/01/13/css利器-Flex布局/index.html">
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
-<meta property="og:description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
+<meta property="og:description" content="之前兼职做项目时，用了挺多浮动(float)，结果有些没消除，对后面的布局产生了影响，我前辈就跟我说，以后浮动用flex去实现就行，不要用float了。flex布局的确是CSS的布局利器，尤其是在移动端网页设计上。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-17T09:02:06.422Z">
+<meta property="og:updated_time" content="2019-01-13T14:15:58.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6常用语法">
-<meta name="twitter:description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
+<meta name="twitter:title" content="css利器--Flex布局">
+<meta name="twitter:description" content="之前兼职做项目时，用了挺多浮动(float)，结果有些没消除，对后面的布局产生了影响，我前辈就跟我说，以后浮动用flex去实现就行，不要用float了。flex布局的确是CSS的布局利器，尤其是在移动端网页设计上。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/17/ES6常用语法/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/13/css利器-Flex布局/"/>
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>ES6常用语法 | JacksonZhou's Blog</title>
+  <title>css利器--Flex布局 | JacksonZhou's Blog</title>
   
 
 
@@ -374,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/ES6常用语法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/css利器-Flex布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JacksonZhou">
@@ -391,7 +391,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6常用语法
+          <h1 class="post-title" itemprop="name headline">css利器--Flex布局
               
             
           </h1>
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2018-12-17 16:22:10 / 修改时间：17:02:06" itemprop="dateCreated datePublished" datetime="2018-12-17T16:22:10+08:00">2018-12-17</time>
+              <time title="创建时间：2019-01-13 22:14:39 / 修改时间：22:15:58" itemprop="dateCreated datePublished" datetime="2019-01-13T22:14:39+08:00">2019-01-13</time>
             
 
             
@@ -438,7 +438,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a></span>
 
                 
                 
@@ -480,45 +480,56 @@
       
 
       
-        <p>ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
-<a id="more"></a>
-<h4 id="var-let和const"><a href="#var-let和const" class="headerlink" title="var,let和const"></a>var,let和const</h4><ul>
-<li>var 和 let 都可用于定义变量，但是 let 定义的变量只能在一个作用域内使用</li>
+        <p>之前兼职做项目时，用了挺多浮动(float)，结果有些没消除，对后面的布局产生了影响，我前辈就跟我说，以后浮动用flex去实现就行，不要用float了。flex布局的确是CSS的布局利器，尤其是在移动端网页设计上。<br><a id="more"></a></p>
+<pre><code>注意：在webkit内核的浏览器中使用时，必须加上*-webkit-*前缀
+</code></pre><h2 id="重点属性"><a href="#重点属性" class="headerlink" title="重点属性"></a>重点属性</h2><h3 id="父容器属性"><a href="#父容器属性" class="headerlink" title="父容器属性"></a>父容器属性</h3><ul>
+<li><strong>flex-direction</strong> 主轴的方向，即项目排列的方向</li>
 </ul>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> demo_1 = <span class="string">"demo_1"</span>;</span><br><span class="line">    <span class="keyword">let</span> demo_2 = <span class="string">"demo_2"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(demo_1);</span><br><span class="line">&lt;!--可以打印出来demo_1值--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(demo_2);</span><br><span class="line">&lt;!--不可以打印出来demo_2值--&gt;</span><br></pre></td></tr></table></figure>
+<p><code>row(默认)|row-reverse|column|column-reverse</code></p>
 <ul>
-<li>const 定义不可变量<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> demo_3 = <span class="string">"demo_3"</span>;</span><br><span class="line">demo_3 = <span class="string">"demo_4"</span>;</span><br><span class="line">&lt;!--会提示报错--&gt;</span><br></pre></td></tr></table></figure>
+<li><strong>flex-wrap</strong> 决定是否换行以及换行的方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nowrap(默认)|wrap|wrap-reverse</span><br><span class="line">//默认情况下不管内容多少都会排成一行</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>flex-flow</strong> 是flex-direction和flex-wrap的简写形式</li>
+<li><strong>justify-content</strong> 项目在主轴方向上排列的方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flex-start（默认）|flex-end|center|space-between|space-around</span><br><span class="line">//左对齐、右对齐、居中、两端对齐、沿轴线均匀分布</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>align-items</strong> 项目在交叉轴上的对齐方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flex-start|flex-end|center|baseline|stretch</span><br><span class="line">//顶端对齐、底部对齐、垂直居中、项目第一行文字的底部对齐、当项目未设置高度时，项目将和容器等高对齐</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>align-content</strong> 有多根主轴时，即item不止一行时，多行在交叉轴轴上的对齐方式，此时align-items属性将失效</p>
 </li>
 </ul>
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>告别用 + 拼接字符串<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">"demo"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`</span></span><br><span class="line"><span class="string">    test <span class="subst">$&#123;str&#125;</span>!!</span></span><br><span class="line"><span class="string">`</span>);</span><br><span class="line">&lt;!--显示test demo!!--&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h4><ul>
-<li><p>函数简写</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_1 = <span class="function"><span class="params">num</span> =&gt;</span> num++;</span><br><span class="line">&lt;!--相当于<span class="keyword">const</span> add_1 = <span class="function"><span class="params">num</span> =&gt;</span> &#123;<span class="keyword">return</span> num++&#125;--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(add_1(<span class="number">1</span>));</span><br><span class="line">&lt;!--打印出<span class="number">2</span>--&gt;</span><br><span class="line"><span class="keyword">const</span> add_2 = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="built_in">console</span>.log(add_2(<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">&lt;!--打印出<span class="number">3</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>带默认参数</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_3 = <span class="function">(<span class="params">num1, num2=<span class="number">1</span></span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="built_in">console</span>.log(add_3(<span class="number">1</span>));</span><br><span class="line">&lt;!--num1=<span class="number">1</span>,和默认值num2=<span class="number">1</span>相加,打印出<span class="number">2</span>--&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flex-start：左对齐</span><br><span class="line">flex-end：右对齐</span><br><span class="line">center：居中对齐</span><br><span class="line">space-between：两端对齐</span><br><span class="line">space-around：沿轴线均匀分布</span><br><span class="line">stretch：各行根据其行中项目的flex-grow值伸展以充分占据剩余空间</span><br></pre></td></tr></table></figure>
+<h3 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h3><ul>
+<li><strong>flex</strong></li>
+</ul>
+<p><code>flex:1 1 30%</code></p>
+<p>等价于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flex-grow : 1;</span><br><span class="line">//表示当有剩余空间的时候，分配给项目的比例，默认值 0</span><br><span class="line">//比如父容器有200px的剩余空间，单个项目得到空间为</span><br><span class="line">//(单grow/总grow)*200px</span><br><span class="line">flex-shrink : 1;</span><br><span class="line">//表示空间不足的时候，项目缩小的比例，默认值 1</span><br><span class="line">//若为0，项目不会缩小，会溢出父容器</span><br><span class="line">flex-basis : 30%;</span><br><span class="line">//表示分配空间之前，项目占据主轴的空间，默认值 auto</span><br></pre></td></tr></table></figure></p>
+<p>分配细则见<a href="https://segmentfault.com/a/1190000017826957" target="_blank" rel="noopener">深入理解Flex布局 – flex-grow &amp; flex-shrink &amp; flex-basis</a></p>
+<ul>
+<li><strong>order</strong> 项目排列顺序的优先级，数值越低，优先级越高</li>
+<li><strong>align-self</strong> 允许item有自己独特的在交叉轴上的对齐方式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">auto：和父元素align-self的值一致</span><br><span class="line">flex-start：顶端对齐</span><br><span class="line">flex-end：底部对齐</span><br><span class="line">center：竖直方向上居中对齐</span><br><span class="line">baseline：item第一行文字的底部对齐</span><br><span class="line">stretch：当item未设置高度时，item将和容器等高对齐</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="展开运算符-…"><a href="#展开运算符-…" class="headerlink" title="展开运算符 …"></a>展开运算符 …</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_4 = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(add_4(...arr));</span><br><span class="line">&lt;!--展开<span class="number">1</span>和<span class="number">2</span>,分别作为num1和num2的参数,打印出<span class="number">3</span>--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(...arr,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">&lt;!--打印出<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>--&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="对象扩展"><a href="#对象扩展" class="headerlink" title="对象扩展"></a>对象扩展</h4><ul>
-<li>对象简写<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> demo = <span class="string">"objs"</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"obj"</span>,</span><br><span class="line">    func:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span>: <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    demo,</span><br><span class="line">    &lt;!--相当于demo: demo--&gt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj)</span><br><span class="line">&lt;!--打印出来的对象不含有objs属性,而是demo:<span class="string">"objs"</span>--&gt;</span><br><span class="line">&lt;!--必须在外面定义 obj[demo] =<span class="string">"jack"</span>才能使对象具有objs属性--&gt;</span><br><span class="line"><span class="keyword">const</span> demo = <span class="string">"objs"</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"obj"</span>,</span><br><span class="line">    func() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    [demo]: <span class="string">"jack"</span>,</span><br><span class="line">    [demo+<span class="string">"2"</span>]: <span class="string">"jackson"</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj)</span><br><span class="line">&lt;!--打印出来的对象含有objs属性和objs2属性,即objs:<span class="string">"jack"</span>--&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h2><h3 id="用flex属性代替浮动布局"><a href="#用flex属性代替浮动布局" class="headerlink" title="用flex属性代替浮动布局"></a>用flex属性代替浮动布局</h3><ul>
+<li><p>左浮动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .parent &#123;</span><br><span class="line">        display:flex;</span><br><span class="line">    &#125;</span><br><span class="line">    .left &#123;width: 100px; background: red&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>右浮动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .parent &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">    &#125;</span><br><span class="line">    .blank &#123;flex: 1&#125;</span><br><span class="line">    .right &#123;width: 100px; background: green&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;blank&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现左浮动和右浮动</p>
 </li>
 </ul>
-<h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><ul>
-<li><p>数组赋值</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> [num1, num2] = arr;</span><br><span class="line">&lt;!--num1和num2分别赋值为<span class="number">1</span>和<span class="number">2</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对象赋值</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">num</span>: <span class="number">1</span>, <span class="attr">type</span>: <span class="string">"对象"</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;num, type&#125; = obj;</span><br><span class="line">&lt;!--num和type分别赋值为<span class="number">1</span>和<span class="string">"对象"</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><ul>
-<li>import, import{}, export, export default</li>
-<li>node 还不支持 import，还需要用 require 加载文件</li>
-</ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="https://www.jianshu.com/p/be7b0b710e68" target="_blank" rel="noopener">es6新语法新特性</a></li>
-<li><a href="https://www.jianshu.com/p/d6a8bfe387ce" target="_blank" rel="noopener">es6新语法新特性补充</a></li>
+<p>第一种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .parent &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">        justify-content: space-between;</span><br><span class="line">    &#125;</span><br><span class="line">    .left &#123;width: 100px; background: red&#125;</span><br><span class="line">    .right &#123;width: 100px; background: green&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>第二种：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .parent &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">    &#125;</span><br><span class="line">    .left &#123;width: 100px; background: red&#125;</span><br><span class="line">    .right &#123;width: 100px; background: green&#125;</span><br><span class="line">    .blank &#123;flex: 1&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;!--增加空div，加属性flex:1--&gt;</span><br><span class="line">        &lt;div class=&quot;blank&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="实现水平垂直居中"><a href="#实现水平垂直居中" class="headerlink" title="实现水平垂直居中"></a>实现水平垂直居中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//水平居中</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .parent &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">        // 水平居中</span><br><span class="line">        justify-content: space-between;</span><br><span class="line">        // 垂直居中</span><br><span class="line">        align-items: center;</span><br><span class="line">    &#125;</span><br><span class="line">    .left &#123;width: 100px; height: 100px; background: red&#125;</span><br><span class="line">    .right &#123;width: 100px; height: 80px; background: green&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.cnblogs.com/nuannuan7362/p/5823381.html" target="_blank" rel="noopener">flex弹性布局总结</a></li>
 </ul>
 
       
@@ -554,9 +565,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+            <a href="/tags/flex/" rel="tag"><i class="fa fa-tag"></i> flex</a>
           
-            <a href="/tags/ES/" rel="tag"><i class="fa fa-tag"></i> ES</a>
+            <a href="/tags/布局/" rel="tag"><i class="fa fa-tag"></i> 布局</a>
           
         </div>
       
@@ -569,8 +580,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/17/background-size用法/" rel="next" title="background-size用法">
-                <i class="fa fa-chevron-left"></i> background-size用法
+              <a href="/2019/01/11/vue-element-ui表格实现编辑行和保存数据/" rel="next" title="vue+element-ui表格实现编辑行和保存数据">
+                <i class="fa fa-chevron-left"></i> vue+element-ui表格实现编辑行和保存数据
               </a>
             
           </div>
@@ -578,10 +589,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/03/基于vux的底部固定导航栏和点击切换颜色/" rel="prev" title="基于vux的底部固定导航栏和点击切换颜色">
-                基于vux的底部固定导航栏和点击切换颜色 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -824,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#var-let和const"><span class="nav-number">1.</span> <span class="nav-text">var,let和const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数扩展"><span class="nav-number">3.</span> <span class="nav-text">函数扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#展开运算符-…"><span class="nav-number">4.</span> <span class="nav-text">展开运算符 …</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象扩展"><span class="nav-number">5.</span> <span class="nav-text">对象扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解构赋值"><span class="nav-number">6.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化"><span class="nav-number">7.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重点属性"><span class="nav-number">1.</span> <span class="nav-text">重点属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#父容器属性"><span class="nav-number">1.1.</span> <span class="nav-text">父容器属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目属性"><span class="nav-number">1.2.</span> <span class="nav-text">项目属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用实例"><span class="nav-number">2.</span> <span class="nav-text">应用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用flex属性代替浮动布局"><span class="nav-number">2.1.</span> <span class="nav-text">用flex属性代替浮动布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现水平垂直居中"><span class="nav-number">2.2.</span> <span class="nav-text">实现水平垂直居中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
