@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
-<meta name="keywords" content="ES6,ES">
+  <meta name="description" content="用element的el-autocomplete实现一个简单的远程输入搜索框，输入值后，对请求到的后台数据进行模糊匹配，匹配到的数据用下拉列表显示出来。">
+<meta name="keywords" content="element,远程搜索框">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6常用语法">
-<meta property="og:url" content="http://yoursite.com/2018/12/17/ES6常用语法/index.html">
+<meta property="og:title" content="vue+element实现一个简单的远程输入搜索框">
+<meta property="og:url" content="http://yoursite.com/2019/01/24/用element实现一个简单的远程输入搜索框/index.html">
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
-<meta property="og:description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
+<meta property="og:description" content="用element的el-autocomplete实现一个简单的远程输入搜索框，输入值后，对请求到的后台数据进行模糊匹配，匹配到的数据用下拉列表显示出来。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-17T09:02:06.422Z">
+<meta property="og:updated_time" content="2019-01-24T10:43:59.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6常用语法">
-<meta name="twitter:description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
+<meta name="twitter:title" content="vue+element实现一个简单的远程输入搜索框">
+<meta name="twitter:description" content="用element的el-autocomplete实现一个简单的远程输入搜索框，输入值后，对请求到的后台数据进行模糊匹配，匹配到的数据用下拉列表显示出来。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/17/ES6常用语法/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/24/用element实现一个简单的远程输入搜索框/"/>
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>ES6常用语法 | JacksonZhou's Blog</title>
+  <title>vue+element实现一个简单的远程输入搜索框 | JacksonZhou's Blog</title>
   
 
 
@@ -374,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/ES6常用语法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/用element实现一个简单的远程输入搜索框/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JacksonZhou">
@@ -391,7 +391,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6常用语法
+          <h1 class="post-title" itemprop="name headline">vue+element实现一个简单的远程输入搜索框
               
             
           </h1>
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2018-12-17 16:22:10 / 修改时间：17:02:06" itemprop="dateCreated datePublished" datetime="2018-12-17T16:22:10+08:00">2018-12-17</time>
+              <time title="创建时间：2019-01-24 18:40:07 / 修改时间：18:43:59" itemprop="dateCreated datePublished" datetime="2019-01-24T18:40:07+08:00">2019-01-24</time>
             
 
             
@@ -438,7 +438,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/element-ui/" itemprop="url" rel="index"><span itemprop="name">element-ui</span></a></span>
 
                 
                 
@@ -480,47 +487,9 @@
       
 
       
-        <p>ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
-<a id="more"></a>
-<h4 id="var-let和const"><a href="#var-let和const" class="headerlink" title="var,let和const"></a>var,let和const</h4><ul>
-<li>var 和 let 都可用于定义变量，但是 let 定义的变量只能在一个作用域内使用</li>
-</ul>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> demo_1 = <span class="string">"demo_1"</span>;</span><br><span class="line">    <span class="keyword">let</span> demo_2 = <span class="string">"demo_2"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(demo_1);</span><br><span class="line">&lt;!--可以打印出来demo_1值--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(demo_2);</span><br><span class="line">&lt;!--不可以打印出来demo_2值--&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>const 定义不可变量<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> demo_3 = <span class="string">"demo_3"</span>;</span><br><span class="line">demo_3 = <span class="string">"demo_4"</span>;</span><br><span class="line">&lt;!--会提示报错--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>告别用 + 拼接字符串<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">"demo"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`</span></span><br><span class="line"><span class="string">    test <span class="subst">$&#123;str&#125;</span>!!</span></span><br><span class="line"><span class="string">`</span>);</span><br><span class="line">&lt;!--显示test demo!!--&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h4><ul>
-<li><p>函数简写</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_1 = <span class="function"><span class="params">num</span> =&gt;</span> num++;</span><br><span class="line">&lt;!--相当于<span class="keyword">const</span> add_1 = <span class="function"><span class="params">num</span> =&gt;</span> &#123;<span class="keyword">return</span> num++&#125;--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(add_1(<span class="number">1</span>));</span><br><span class="line">&lt;!--打印出<span class="number">2</span>--&gt;</span><br><span class="line"><span class="keyword">const</span> add_2 = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="built_in">console</span>.log(add_2(<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">&lt;!--打印出<span class="number">3</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>带默认参数</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_3 = <span class="function">(<span class="params">num1, num2=<span class="number">1</span></span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="built_in">console</span>.log(add_3(<span class="number">1</span>));</span><br><span class="line">&lt;!--num1=<span class="number">1</span>,和默认值num2=<span class="number">1</span>相加,打印出<span class="number">2</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="展开运算符-…"><a href="#展开运算符-…" class="headerlink" title="展开运算符 …"></a>展开运算符 …</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_4 = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(add_4(...arr));</span><br><span class="line">&lt;!--展开<span class="number">1</span>和<span class="number">2</span>,分别作为num1和num2的参数,打印出<span class="number">3</span>--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(...arr,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">&lt;!--打印出<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>--&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="对象扩展"><a href="#对象扩展" class="headerlink" title="对象扩展"></a>对象扩展</h4><ul>
-<li>对象简写<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> demo = <span class="string">"objs"</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"obj"</span>,</span><br><span class="line">    func:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span>: <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    demo,</span><br><span class="line">    &lt;!--相当于demo: demo--&gt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj)</span><br><span class="line">&lt;!--打印出来的对象不含有objs属性,而是demo:<span class="string">"objs"</span>--&gt;</span><br><span class="line">&lt;!--必须在外面定义 obj[demo] =<span class="string">"jack"</span>才能使对象具有objs属性--&gt;</span><br><span class="line"><span class="keyword">const</span> demo = <span class="string">"objs"</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"obj"</span>,</span><br><span class="line">    func() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    [demo]: <span class="string">"jack"</span>,</span><br><span class="line">    [demo+<span class="string">"2"</span>]: <span class="string">"jackson"</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj)</span><br><span class="line">&lt;!--打印出来的对象含有objs属性和objs2属性,即objs:<span class="string">"jack"</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><ul>
-<li><p>数组赋值</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> [num1, num2] = arr;</span><br><span class="line">&lt;!--num1和num2分别赋值为<span class="number">1</span>和<span class="number">2</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对象赋值</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">num</span>: <span class="number">1</span>, <span class="attr">type</span>: <span class="string">"对象"</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;num, type&#125; = obj;</span><br><span class="line">&lt;!--num和type分别赋值为<span class="number">1</span>和<span class="string">"对象"</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><ul>
-<li>import, import{}, export, export default</li>
-<li>node 还不支持 import，还需要用 require 加载文件</li>
-</ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="https://www.jianshu.com/p/be7b0b710e68" target="_blank" rel="noopener">es6新语法新特性</a></li>
-<li><a href="https://www.jianshu.com/p/d6a8bfe387ce" target="_blank" rel="noopener">es6新语法新特性补充</a></li>
-</ul>
-
+        <p>用element的el-autocomplete实现一个简单的远程输入搜索框，输入值后，对请求到的后台数据进行模糊匹配，匹配到的数据用下拉列表显示出来。<br><a id="more"></a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-autocomplete</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"demos"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:fetch-suggestions</span>=<span class="string">"querySearchItem"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">prefix-icon</span>=<span class="string">"el-icon-search"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">"搜索商品名称"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">select</span>=<span class="string">"searchItemSelect"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/ecmascript-6"</span>&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">''</span>,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      demos: <span class="string">''</span>,</span><br><span class="line">      demo: [],</span><br><span class="line">      timeout: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123; <span class="comment">// 等DOM更新后挂载数据</span></span><br><span class="line">    <span class="keyword">this</span>.demo = <span class="keyword">this</span>.loadAll()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    loadAll() &#123;</span><br><span class="line">      <span class="comment">// 去后台获取简单的商品列表,并对每一项添加上value,这里只是简单地模拟数据</span></span><br><span class="line">      <span class="comment">// let self = this</span></span><br><span class="line">      <span class="comment">// this.$http.getStoreListItem(json).then((res) =&gt; &#123;</span></span><br><span class="line">      <span class="comment">//   return res;</span></span><br><span class="line">      <span class="comment">// &#125;).catch((e =&gt; &#123;</span></span><br><span class="line">      <span class="comment">//   console.log(e);</span></span><br><span class="line">      <span class="comment">// &#125;))</span></span><br><span class="line">      <span class="keyword">return</span> [</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">1</span>, <span class="string">'item_name'</span>: <span class="string">'香港流沙包'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">2</span>, <span class="string">'item_name'</span>: <span class="string">'鸭腿'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">3</span>, <span class="string">'item_name'</span>: <span class="string">'烤鸡腿'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">4</span>, <span class="string">'item_name'</span>: <span class="string">'Timi巧克力'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">5</span>, <span class="string">'item_name'</span>: <span class="string">'叉烧包'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">6</span>, <span class="string">'item_name'</span>: <span class="string">'辣条'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">7</span>, <span class="string">'item_name'</span>: <span class="string">'HongKong辣条'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">8</span>, <span class="string">'item_name'</span>: <span class="string">'鸭肾片'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">9</span>, <span class="string">'item_name'</span>: <span class="string">'棉花糖'</span> &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 输入回调</span></span><br><span class="line">    querySearchItem(queryString, cb) &#123;</span><br><span class="line">      <span class="keyword">var</span> demo = <span class="keyword">this</span>.demo</span><br><span class="line">      <span class="comment">// 为这个数组中每一个对象加一个value字段</span></span><br><span class="line">      <span class="comment">// 因为autocomplete只识别value字段并在下拉列中显示</span></span><br><span class="line">      <span class="comment">// 多数情况后台数据中是没有value的属性的</span></span><br><span class="line">      <span class="comment">// 要自己建一个数组，给每一项设置value</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> demo) &#123;</span><br><span class="line">        i.value = i.item_name</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// queryString指输入框中输入的值，若无输入默认显示全部内容，有则显示匹配内容</span></span><br><span class="line">      <span class="keyword">var</span> results = queryString ? demo.filter(<span class="keyword">this</span>.createStateFilter(queryString)) : demo</span><br><span class="line">      <span class="comment">// 设置回调时间，延迟显示列表，不设置的话直接cb(results)就可以了</span></span><br><span class="line">      clearTimeout(<span class="keyword">this</span>.timeout)</span><br><span class="line">      <span class="keyword">this</span>.timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 回调函数cb，返回匹配到的内容</span></span><br><span class="line">        cb(results)</span><br><span class="line">      &#125;, <span class="number">2000</span> * <span class="built_in">Math</span>.random())</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 字母模糊匹配</span></span><br><span class="line">    createStateFilter(queryString) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (state.value.toLowerCase().indexOf(queryString.toLowerCase()) === <span class="number">0</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 处理选中项</span></span><br><span class="line">    searchItemSelect() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'选中项'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -554,9 +523,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+            <a href="/tags/element/" rel="tag"><i class="fa fa-tag"></i> element</a>
           
-            <a href="/tags/ES/" rel="tag"><i class="fa fa-tag"></i> ES</a>
+            <a href="/tags/远程搜索框/" rel="tag"><i class="fa fa-tag"></i> 远程搜索框</a>
           
         </div>
       
@@ -569,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/17/background-size用法/" rel="next" title="background-size用法">
-                <i class="fa fa-chevron-left"></i> background-size用法
+              <a href="/2019/01/24/element-ui的el-input自动聚焦失效/" rel="next" title="element-ui的el-input自动聚焦失效">
+                <i class="fa fa-chevron-left"></i> element-ui的el-input自动聚焦失效
               </a>
             
           </div>
@@ -578,10 +547,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/03/基于vux的底部固定导航栏和点击切换颜色/" rel="prev" title="基于vux的底部固定导航栏和点击切换颜色">
-                基于vux的底部固定导航栏和点击切换颜色 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -626,17 +591,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -830,22 +786,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#var-let和const"><span class="nav-number">1.</span> <span class="nav-text">var,let和const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数扩展"><span class="nav-number">3.</span> <span class="nav-text">函数扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#展开运算符-…"><span class="nav-number">4.</span> <span class="nav-text">展开运算符 …</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象扩展"><span class="nav-number">5.</span> <span class="nav-text">对象扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解构赋值"><span class="nav-number">6.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化"><span class="nav-number">7.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
-<meta name="keywords" content="ES6,ES">
+  <meta name="description" content="我是打算实现打开对话框时，某个输入框自动聚焦，一开始是直接加了input的原生属性autofocus，貌似只有第一次自动聚焦，之后就失效了，接下来用">
+<meta name="keywords" content="element,el-input">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6常用语法">
-<meta property="og:url" content="http://yoursite.com/2018/12/17/ES6常用语法/index.html">
+<meta property="og:title" content="element-ui的el-input自动聚焦失效">
+<meta property="og:url" content="http://yoursite.com/2019/01/24/element-ui的el-input自动聚焦失效/index.html">
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
-<meta property="og:description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
+<meta property="og:description" content="我是打算实现打开对话框时，某个输入框自动聚焦，一开始是直接加了input的原生属性autofocus，貌似只有第一次自动聚焦，之后就失效了，接下来用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-17T09:02:06.422Z">
+<meta property="og:updated_time" content="2019-01-24T10:42:53.353Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6常用语法">
-<meta name="twitter:description" content="ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。">
+<meta name="twitter:title" content="element-ui的el-input自动聚焦失效">
+<meta name="twitter:description" content="我是打算实现打开对话框时，某个输入框自动聚焦，一开始是直接加了input的原生属性autofocus，貌似只有第一次自动聚焦，之后就失效了，接下来用">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/17/ES6常用语法/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/24/element-ui的el-input自动聚焦失效/"/>
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>ES6常用语法 | JacksonZhou's Blog</title>
+  <title>element-ui的el-input自动聚焦失效 | JacksonZhou's Blog</title>
   
 
 
@@ -374,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/ES6常用语法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/element-ui的el-input自动聚焦失效/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JacksonZhou">
@@ -391,7 +391,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6常用语法
+          <h1 class="post-title" itemprop="name headline">element-ui的el-input自动聚焦失效
               
             
           </h1>
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2018-12-17 16:22:10 / 修改时间：17:02:06" itemprop="dateCreated datePublished" datetime="2018-12-17T16:22:10+08:00">2018-12-17</time>
+              <time title="创建时间：2019-01-24 18:37:52 / 修改时间：18:42:53" itemprop="dateCreated datePublished" datetime="2019-01-24T18:37:52+08:00">2019-01-24</time>
             
 
             
@@ -438,7 +438,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/element-ui/" itemprop="url" rel="index"><span itemprop="name">element-ui</span></a></span>
 
                 
                 
@@ -480,45 +480,13 @@
       
 
       
-        <p>ECMAScript6 是 JavaScript 的标准，目前浏览器的 JavaScript 大多数都支持ES6。ES6使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
-<a id="more"></a>
-<h4 id="var-let和const"><a href="#var-let和const" class="headerlink" title="var,let和const"></a>var,let和const</h4><ul>
-<li>var 和 let 都可用于定义变量，但是 let 定义的变量只能在一个作用域内使用</li>
-</ul>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> demo_1 = <span class="string">"demo_1"</span>;</span><br><span class="line">    <span class="keyword">let</span> demo_2 = <span class="string">"demo_2"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(demo_1);</span><br><span class="line">&lt;!--可以打印出来demo_1值--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(demo_2);</span><br><span class="line">&lt;!--不可以打印出来demo_2值--&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>const 定义不可变量<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> demo_3 = <span class="string">"demo_3"</span>;</span><br><span class="line">demo_3 = <span class="string">"demo_4"</span>;</span><br><span class="line">&lt;!--会提示报错--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>告别用 + 拼接字符串<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">"demo"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`</span></span><br><span class="line"><span class="string">    test <span class="subst">$&#123;str&#125;</span>!!</span></span><br><span class="line"><span class="string">`</span>);</span><br><span class="line">&lt;!--显示test demo!!--&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h4><ul>
-<li><p>函数简写</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_1 = <span class="function"><span class="params">num</span> =&gt;</span> num++;</span><br><span class="line">&lt;!--相当于<span class="keyword">const</span> add_1 = <span class="function"><span class="params">num</span> =&gt;</span> &#123;<span class="keyword">return</span> num++&#125;--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(add_1(<span class="number">1</span>));</span><br><span class="line">&lt;!--打印出<span class="number">2</span>--&gt;</span><br><span class="line"><span class="keyword">const</span> add_2 = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="built_in">console</span>.log(add_2(<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">&lt;!--打印出<span class="number">3</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>带默认参数</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_3 = <span class="function">(<span class="params">num1, num2=<span class="number">1</span></span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="built_in">console</span>.log(add_3(<span class="number">1</span>));</span><br><span class="line">&lt;!--num1=<span class="number">1</span>,和默认值num2=<span class="number">1</span>相加,打印出<span class="number">2</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="展开运算符-…"><a href="#展开运算符-…" class="headerlink" title="展开运算符 …"></a>展开运算符 …</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add_4 = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(add_4(...arr));</span><br><span class="line">&lt;!--展开<span class="number">1</span>和<span class="number">2</span>,分别作为num1和num2的参数,打印出<span class="number">3</span>--&gt;</span><br><span class="line"><span class="built_in">console</span>.log(...arr,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">&lt;!--打印出<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>--&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="对象扩展"><a href="#对象扩展" class="headerlink" title="对象扩展"></a>对象扩展</h4><ul>
-<li>对象简写<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> demo = <span class="string">"objs"</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"obj"</span>,</span><br><span class="line">    func:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span>: <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    demo,</span><br><span class="line">    &lt;!--相当于demo: demo--&gt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj)</span><br><span class="line">&lt;!--打印出来的对象不含有objs属性,而是demo:<span class="string">"objs"</span>--&gt;</span><br><span class="line">&lt;!--必须在外面定义 obj[demo] =<span class="string">"jack"</span>才能使对象具有objs属性--&gt;</span><br><span class="line"><span class="keyword">const</span> demo = <span class="string">"objs"</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"obj"</span>,</span><br><span class="line">    func() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    [demo]: <span class="string">"jack"</span>,</span><br><span class="line">    [demo+<span class="string">"2"</span>]: <span class="string">"jackson"</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj)</span><br><span class="line">&lt;!--打印出来的对象含有objs属性和objs2属性,即objs:<span class="string">"jack"</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><ul>
-<li><p>数组赋值</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> [num1, num2] = arr;</span><br><span class="line">&lt;!--num1和num2分别赋值为<span class="number">1</span>和<span class="number">2</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对象赋值</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">num</span>: <span class="number">1</span>, <span class="attr">type</span>: <span class="string">"对象"</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;num, type&#125; = obj;</span><br><span class="line">&lt;!--num和type分别赋值为<span class="number">1</span>和<span class="string">"对象"</span>--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><ul>
-<li>import, import{}, export, export default</li>
-<li>node 还不支持 import，还需要用 require 加载文件</li>
-</ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="https://www.jianshu.com/p/be7b0b710e68" target="_blank" rel="noopener">es6新语法新特性</a></li>
-<li><a href="https://www.jianshu.com/p/d6a8bfe387ce" target="_blank" rel="noopener">es6新语法新特性补充</a></li>
+        <p>我是打算实现打开对话框时，某个输入框自动聚焦，一开始是直接加了input的原生属性autofocus，貌似只有第一次自动聚焦，之后就失效了，接下来用<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">showInput() &#123;</span><br><span class="line">    <span class="keyword">this</span>.inputVisible = <span class="literal">true</span> <span class="comment">// 打开对话框</span></span><br><span class="line">    <span class="keyword">this</span>.$refs[<span class="string">'colorName'</span>].focus() <span class="comment">// 指定某个输入框聚焦</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>结果还是无效。查了一波百度，发现是element在input上封装了很多组件导致的聚焦属性失效。改用了下面的方法就可以了。</p>
+<h3 id="使用-nextTick"><a href="#使用-nextTick" class="headerlink" title="使用$nextTick"></a>使用$nextTick</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-dialog</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:visible.sync</span>=<span class="string">"inputVisible"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">title</span>=<span class="string">"自动聚焦"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">width</span>=<span class="string">"20%"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">center</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-form</span> <span class="attr">:model</span>=<span class="string">"addColorForm"</span> <span class="attr">label-width</span>=<span class="string">"60px"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-form-item</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">label</span>=<span class="string">"色号"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">keyup.enter.native</span>=<span class="string">"confirmLottery"</span>&gt;</span>// 回车保存</span><br><span class="line">      <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"20"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">ref</span>=<span class="string">"colorName"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">v-model</span>=<span class="string">"addColorForm.name"</span>/&gt;</span>//给要自动聚焦的输入框加上ref，方便查找</span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">slot</span>=<span class="string">"footer"</span> <span class="attr">class</span>=<span class="string">"dialog-footer"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"primary"</span> @<span class="attr">click</span>=<span class="string">"handleInputConfirm"</span>&gt;</span>保 存<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"inputVisible = false"</span>&gt;</span>取 消<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显示标签输入框</span></span><br><span class="line">showInput() &#123;</span><br><span class="line">  <span class="keyword">this</span>.inputVisible = <span class="literal">true</span> </span><br><span class="line">  <span class="comment">// 修改完对话框的显示数值后，DOM并未更新</span></span><br><span class="line">  <span class="comment">// 此时无法直接访问到先前被隐藏的输入框</span></span><br><span class="line">  <span class="comment">// 即this.$refs['colorName'].focus()是无效的</span></span><br><span class="line">  <span class="comment">// 用Vue.nextTick使得focus方法在视图更新后再执行</span></span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$refs[<span class="string">'colorName'</span>].focus()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="使用prompt"><a href="#使用prompt" class="headerlink" title="使用prompt"></a>使用prompt</h3><p>像上面这样只有一两个输入框的表单对话框，直接用prompt对话框就可以了，不仅自动对焦，按回车也能保存，挺方便的，就不用自己去设置了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">handleClick() &#123;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span> <span class="comment">// self可防止异步带来的this异常</span></span><br><span class="line">  self.$prompt(<span class="string">'请输入抽奖券数'</span>, <span class="string">'修改抽奖券数'</span>, &#123;</span><br><span class="line">    confirmButtonText: <span class="string">'确定保存'</span>,</span><br><span class="line">    cancelButtonText: <span class="string">'取消'</span></span><br><span class="line">  &#125;).then(<span class="function">(<span class="params">&#123; value &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    self.saveSignInfo() <span class="comment">// 处理函数</span></span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://segmentfault.com/a/1190000012861862" target="_blank" rel="noopener">Vue.nextTick的原理和用途</a></li>
 </ul>
 
       
@@ -554,9 +522,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+            <a href="/tags/element/" rel="tag"><i class="fa fa-tag"></i> element</a>
           
-            <a href="/tags/ES/" rel="tag"><i class="fa fa-tag"></i> ES</a>
+            <a href="/tags/el-input/" rel="tag"><i class="fa fa-tag"></i> el-input</a>
           
         </div>
       
@@ -569,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/17/background-size用法/" rel="next" title="background-size用法">
-                <i class="fa fa-chevron-left"></i> background-size用法
+              <a href="/2019/01/23/git上传项目防止冲突/" rel="next" title="git上传项目防止冲突">
+                <i class="fa fa-chevron-left"></i> git上传项目防止冲突
               </a>
             
           </div>
@@ -579,8 +547,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/03/基于vux的底部固定导航栏和点击切换颜色/" rel="prev" title="基于vux的底部固定导航栏和点击切换颜色">
-                基于vux的底部固定导航栏和点击切换颜色 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/24/用element实现一个简单的远程输入搜索框/" rel="prev" title="vue+element实现一个简单的远程输入搜索框">
+                vue+element实现一个简单的远程输入搜索框 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -840,7 +808,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#var-let和const"><span class="nav-number">1.</span> <span class="nav-text">var,let和const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数扩展"><span class="nav-number">3.</span> <span class="nav-text">函数扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#展开运算符-…"><span class="nav-number">4.</span> <span class="nav-text">展开运算符 …</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象扩展"><span class="nav-number">5.</span> <span class="nav-text">对象扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解构赋值"><span class="nav-number">6.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化"><span class="nav-number">7.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-nextTick"><span class="nav-number">1.</span> <span class="nav-text">使用$nextTick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用prompt"><span class="nav-number">2.</span> <span class="nav-text">使用prompt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
