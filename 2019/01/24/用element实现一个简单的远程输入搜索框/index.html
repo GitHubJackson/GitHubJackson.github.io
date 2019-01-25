@@ -114,7 +114,7 @@
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
 <meta property="og:description" content="用element的el-autocomplete实现一个简单的远程输入搜索框，输入值后，对请求到的后台数据进行模糊匹配，匹配到的数据用下拉列表显示出来。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-24T11:56:37.456Z">
+<meta property="og:updated_time" content="2019-01-25T01:57:15.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用element实现一个简单的远程输入搜索框">
 <meta name="twitter:description" content="用element的el-autocomplete实现一个简单的远程输入搜索框，输入值后，对请求到的后台数据进行模糊匹配，匹配到的数据用下拉列表显示出来。">
@@ -420,12 +420,24 @@
                 
               
 
-              <time title="创建时间：2019-01-24 19:55:22 / 修改时间：19:56:37" itemprop="dateCreated datePublished" datetime="2019-01-24T19:55:22+08:00">2019-01-24</time>
+              <time title="创建时间：2019-01-24 19:55:22" itemprop="dateCreated datePublished" datetime="2019-01-24T19:55:22+08:00">2019-01-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-25 09:57:15" itemprop="dateModified" datetime="2019-01-25T09:57:15+08:00">2019-01-25</time>
               
             
           </span>
@@ -485,7 +497,7 @@
 
       
         <p>用element的el-autocomplete实现一个简单的远程输入搜索框，输入值后，对请求到的后台数据进行模糊匹配，匹配到的数据用下拉列表显示出来。<br><a id="more"></a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-autocomplete</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"demos"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:fetch-suggestions</span>=<span class="string">"querySearchItem"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">prefix-icon</span>=<span class="string">"el-icon-search"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">"搜索商品名称"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">select</span>=<span class="string">"searchItemSelect"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-autocomplete</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"demos"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:fetch-suggestions</span>=<span class="string">"querySearchItem"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">prefix-icon</span>=<span class="string">"el-icon-search"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">"搜索商品名称"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">select</span>=<span class="string">"searchItemSelect"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--querySearchItem方法可获取输入值和利用callback返回搜索匹配值--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/ecmascript-6"</span>&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">''</span>,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      demos: <span class="string">''</span>,</span><br><span class="line">      demo: [],</span><br><span class="line">      timeout: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123; <span class="comment">// 等DOM更新后挂载数据</span></span><br><span class="line">    <span class="keyword">this</span>.demo = <span class="keyword">this</span>.loadAll()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    loadAll() &#123;</span><br><span class="line">      <span class="comment">// 去后台获取简单的商品列表,并对每一项添加上value,这里只是简单地模拟数据</span></span><br><span class="line">      <span class="comment">// let self = this</span></span><br><span class="line">      <span class="comment">// this.$http.getStoreListItem(json).then((res) =&gt; &#123;</span></span><br><span class="line">      <span class="comment">//   return res;</span></span><br><span class="line">      <span class="comment">// &#125;).catch((e =&gt; &#123;</span></span><br><span class="line">      <span class="comment">//   console.log(e);</span></span><br><span class="line">      <span class="comment">// &#125;))</span></span><br><span class="line">      <span class="keyword">return</span> [</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">1</span>, <span class="string">'item_name'</span>: <span class="string">'香港流沙包'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">2</span>, <span class="string">'item_name'</span>: <span class="string">'鸭腿'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">3</span>, <span class="string">'item_name'</span>: <span class="string">'烤鸡腿'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">4</span>, <span class="string">'item_name'</span>: <span class="string">'Timi巧克力'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">5</span>, <span class="string">'item_name'</span>: <span class="string">'叉烧包'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">6</span>, <span class="string">'item_name'</span>: <span class="string">'辣条'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">7</span>, <span class="string">'item_name'</span>: <span class="string">'HongKong辣条'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">8</span>, <span class="string">'item_name'</span>: <span class="string">'鸭肾片'</span> &#125;,</span><br><span class="line">        &#123; <span class="string">'item_id'</span>: <span class="number">9</span>, <span class="string">'item_name'</span>: <span class="string">'棉花糖'</span> &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 输入回调</span></span><br><span class="line">    querySearchItem(queryString, cb) &#123;</span><br><span class="line">      <span class="keyword">var</span> demo = <span class="keyword">this</span>.demo</span><br><span class="line">      <span class="comment">// 为这个数组中每一个对象加一个value字段</span></span><br><span class="line">      <span class="comment">// 因为autocomplete只识别value字段并在下拉列中显示</span></span><br><span class="line">      <span class="comment">// 多数情况后台数据中是没有value的属性的</span></span><br><span class="line">      <span class="comment">// 要自己建一个数组，给每一项设置value</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> demo) &#123;</span><br><span class="line">        i.value = i.item_name</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// queryString指输入框中输入的值，若无输入默认显示全部内容，有则显示匹配内容</span></span><br><span class="line">      <span class="keyword">var</span> results = queryString ? demo.filter(<span class="keyword">this</span>.createStateFilter(queryString)) : demo</span><br><span class="line">      <span class="comment">// 设置回调时间，延迟显示列表，不设置的话直接cb(results)就可以了</span></span><br><span class="line">      clearTimeout(<span class="keyword">this</span>.timeout)</span><br><span class="line">      <span class="keyword">this</span>.timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 回调函数cb，返回匹配到的内容</span></span><br><span class="line">        cb(results)</span><br><span class="line">      &#125;, <span class="number">2000</span> * <span class="built_in">Math</span>.random())</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 字母模糊匹配</span></span><br><span class="line">    createStateFilter(queryString) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (state.value.toLowerCase().indexOf(queryString.toLowerCase()) === <span class="number">0</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 处理选中项</span></span><br><span class="line">    searchItemSelect() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'选中项'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
       
@@ -543,6 +555,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/26/vue组件-页面-间传值/" rel="prev" title="vue组件(页面)间传值">
+                vue组件(页面)间传值 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -603,7 +619,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -681,7 +697,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

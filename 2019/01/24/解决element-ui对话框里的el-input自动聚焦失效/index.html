@@ -114,7 +114,7 @@
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
 <meta property="og:description" content="我是打算实现打开对话框时，某个输入框自动聚焦，一开始是直接加了input的原生属性autofocus，貌似只有第一次自动聚焦，之后就失效了，接下来用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-24T11:55:09.106Z">
+<meta property="og:updated_time" content="2019-01-25T01:53:28.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决element-ui对话框里的el-input自动聚焦失效">
 <meta name="twitter:description" content="我是打算实现打开对话框时，某个输入框自动聚焦，一开始是直接加了input的原生属性autofocus，貌似只有第一次自动聚焦，之后就失效了，接下来用">
@@ -420,12 +420,24 @@
                 
               
 
-              <time title="创建时间：2019-01-24 19:53:40 / 修改时间：19:55:09" itemprop="dateCreated datePublished" datetime="2019-01-24T19:53:40+08:00">2019-01-24</time>
+              <time title="创建时间：2019-01-24 19:53:40" itemprop="dateCreated datePublished" datetime="2019-01-24T19:53:40+08:00">2019-01-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-25 09:53:28" itemprop="dateModified" datetime="2019-01-25T09:53:28+08:00">2019-01-25</time>
               
             
           </span>
@@ -486,10 +498,10 @@
       
         <p>我是打算实现打开对话框时，某个输入框自动聚焦，一开始是直接加了input的原生属性autofocus，貌似只有第一次自动聚焦，之后就失效了，接下来用<br><a id="more"></a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">showInput() &#123;</span><br><span class="line">    <span class="keyword">this</span>.inputVisible = <span class="literal">true</span> <span class="comment">// 打开对话框</span></span><br><span class="line">    <span class="keyword">this</span>.$refs[<span class="string">'colorName'</span>].focus() <span class="comment">// 指定某个输入框聚焦</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>结果还是无效。查了一波百度，发现是element在input上封装了很多组件导致的聚焦属性失效。改用了下面的方法就可以了。</p>
+<p>结果还是无效。查了一波百度，发现是DOM更新的问题，修改完对话框的显示数值后，DOM并未更新，导致<code>$refs[&#39;colorName&#39;]</code>的指向为空，因此也就无法实现打开对话框聚焦</p>
 <h3 id="使用-nextTick"><a href="#使用-nextTick" class="headerlink" title="使用$nextTick"></a>使用$nextTick</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-dialog</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:visible.sync</span>=<span class="string">"inputVisible"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">title</span>=<span class="string">"自动聚焦"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">width</span>=<span class="string">"20%"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">center</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-form</span> <span class="attr">:model</span>=<span class="string">"addColorForm"</span> <span class="attr">label-width</span>=<span class="string">"60px"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-form-item</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">label</span>=<span class="string">"色号"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">keyup.enter.native</span>=<span class="string">"confirmLottery"</span>&gt;</span>// 回车保存</span><br><span class="line">      <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"20"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">ref</span>=<span class="string">"colorName"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">v-model</span>=<span class="string">"addColorForm.name"</span>/&gt;</span>//给要自动聚焦的输入框加上ref，方便查找</span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">slot</span>=<span class="string">"footer"</span> <span class="attr">class</span>=<span class="string">"dialog-footer"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"primary"</span> @<span class="attr">click</span>=<span class="string">"handleInputConfirm"</span>&gt;</span>保 存<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"inputVisible = false"</span>&gt;</span>取 消<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显示标签输入框</span></span><br><span class="line">showInput() &#123;</span><br><span class="line">  <span class="keyword">this</span>.inputVisible = <span class="literal">true</span> </span><br><span class="line">  <span class="comment">// 修改完对话框的显示数值后，DOM并未更新</span></span><br><span class="line">  <span class="comment">// 此时无法直接访问到先前被隐藏的输入框</span></span><br><span class="line">  <span class="comment">// 即this.$refs['colorName'].focus()是无效的</span></span><br><span class="line">  <span class="comment">// 用Vue.nextTick使得focus方法在视图更新后再执行</span></span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$refs[<span class="string">'colorName'</span>].focus()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<h3 id="使用prompt"><a href="#使用prompt" class="headerlink" title="使用prompt"></a>使用prompt</h3><p>像上面这样只有一两个输入框的表单对话框，直接用prompt对话框就可以了，不仅自动对焦，按回车也能保存，挺方便的，就不用自己去设置了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">handleClick() &#123;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span> <span class="comment">// self可防止异步带来的this异常</span></span><br><span class="line">  self.$prompt(<span class="string">'请输入抽奖券数'</span>, <span class="string">'修改抽奖券数'</span>, &#123;</span><br><span class="line">    confirmButtonText: <span class="string">'确定保存'</span>,</span><br><span class="line">    cancelButtonText: <span class="string">'取消'</span></span><br><span class="line">  &#125;).then(<span class="function">(<span class="params">&#123; value &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    self.saveSignInfo() <span class="comment">// 处理函数</span></span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用prompt"><a href="#使用prompt" class="headerlink" title="使用prompt"></a>使用prompt</h3><p>像上面这样只有一两个输入框的表单对话框，直接用prompt对话框就可以了，不仅自动对焦，按回车也能保存，挺方便的，就不用自己去设置了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">handleClick() &#123;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span> <span class="comment">// self可防止异步带来的this指向异常</span></span><br><span class="line">  self.$prompt(<span class="string">'请输入抽奖券数'</span>, <span class="string">'修改抽奖券数'</span>, &#123;</span><br><span class="line">    confirmButtonText: <span class="string">'确定保存'</span>,</span><br><span class="line">    cancelButtonText: <span class="string">'取消'</span></span><br><span class="line">  &#125;).then(<span class="function">(<span class="params">&#123; value &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    self.saveSignInfo() <span class="comment">// 处理函数</span></span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://segmentfault.com/a/1190000012861862" target="_blank" rel="noopener">Vue.nextTick的原理和用途</a></li>
 </ul>
@@ -624,7 +636,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -702,7 +714,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
