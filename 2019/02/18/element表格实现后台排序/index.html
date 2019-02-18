@@ -106,25 +106,27 @@
 
 
 
-  <meta name="description" content="个人未来方向是全栈工程师，既然如此，就先把跟前端亲密度高的nodejs给学起来吧。">
-<meta name="keywords" content="express">
+  <meta name="description" content="先将 sortable 设置为 custom，同时在 Table 上监听 sort-change 事件，参数为column，在事件回调中可以获取当前排序的列的字段名(column.prop)和排序顺序(column.order)，从而向接口请求排序后的表格数据">
+<meta name="keywords" content="element,表格排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nodejs入门，搭建express基础框架">
-<meta property="og:url" content="http://yoursite.com/2019/02/13/nodejs入门，搭建express基础框架/index.html">
+<meta property="og:title" content="element表格实现后台排序">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/element表格实现后台排序/index.html">
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
-<meta property="og:description" content="个人未来方向是全栈工程师，既然如此，就先把跟前端亲密度高的nodejs给学起来吧。">
+<meta property="og:description" content="先将 sortable 设置为 custom，同时在 Table 上监听 sort-change 事件，参数为column，在事件回调中可以获取当前排序的列的字段名(column.prop)和排序顺序(column.order)，从而向接口请求排序后的表格数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-13T02:32:30.646Z">
+<meta property="og:image" content="https://i.loli.net/2019/02/18/5c6a20594d307.png">
+<meta property="og:updated_time" content="2019-02-18T03:28:59.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nodejs入门，搭建express基础框架">
-<meta name="twitter:description" content="个人未来方向是全栈工程师，既然如此，就先把跟前端亲密度高的nodejs给学起来吧。">
+<meta name="twitter:title" content="element表格实现后台排序">
+<meta name="twitter:description" content="先将 sortable 设置为 custom，同时在 Table 上监听 sort-change 事件，参数为column，在事件回调中可以获取当前排序的列的字段名(column.prop)和排序顺序(column.order)，从而向接口请求排序后的表格数据">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/18/5c6a20594d307.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/13/nodejs入门，搭建express基础框架/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/18/element表格实现后台排序/"/>
 
 
 
@@ -134,7 +136,7 @@
   };
 </script>
 
-  <title>nodejs入门，搭建express基础框架 | JacksonZhou's Blog</title>
+  <title>element表格实现后台排序 | JacksonZhou's Blog</title>
   
 
 
@@ -378,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/13/nodejs入门，搭建express基础框架/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/element表格实现后台排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JacksonZhou">
@@ -395,7 +397,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">nodejs入门，搭建express基础框架
+          <h1 class="post-title" itemprop="name headline">element表格实现后台排序
               
             
           </h1>
@@ -420,7 +422,7 @@
                 
               
 
-              <time title="创建时间：2019-02-13 10:28:50 / 修改时间：10:32:30" itemprop="dateCreated datePublished" datetime="2019-02-13T10:28:50+08:00">2019-02-13</time>
+              <time title="创建时间：2019-02-18 11:27:07 / 修改时间：11:28:59" itemprop="dateCreated datePublished" datetime="2019-02-18T11:27:07+08:00">2019-02-18</time>
             
 
             
@@ -442,7 +444,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
 
                 
                 
@@ -484,61 +486,20 @@
       
 
       
-        <p>个人未来方向是全栈工程师，既然如此，就先把跟前端亲密度高的nodejs给学起来吧。<br><a id="more"></a></p>
-<h2 id="http基础"><a href="#http基础" class="headerlink" title="http基础"></a>http基础</h2><h3 id="URL-统一资源定位符"><a href="#URL-统一资源定位符" class="headerlink" title="URL 统一资源定位符"></a>URL 统一资源定位符</h3><ul>
-<li>协议，约定好的通信内容的格式</li>
-<li>主机名称</li>
-<li>端口，默认80，主机+端口确定唯一的通信通道</li>
-<li>资源路径，指明请求当前服务器上的什么资源</li>
-<li>查询参数</li>
-</ul>
-<h3 id="通信过程"><a href="#通信过程" class="headerlink" title="通信过程"></a>通信过程</h3><ul>
-<li>客户端发出请求(request，req)，包括head和body两部分，head描述请求的基本信息，body要发送给服务器的数据</li>
-<li>服务端应用概念：路由(Route)，根据请求资源路径决定处理方法，生成响应结果，并将结果返回给了浏览器</li>
-<li>服务端响应客户端(response，res)，包括head和body两部分，head描述返回信息的属性，body是返回的数据内容</li>
-</ul>
-<h3 id="状态码及其他词义"><a href="#状态码及其他词义" class="headerlink" title="状态码及其他词义"></a>状态码及其他词义</h3><h4 id="HTTP-1-1-200-ok"><a href="#HTTP-1-1-200-ok" class="headerlink" title="HTTP/1.1 200 ok"></a>HTTP/1.1 200 ok</h4><p>HTTP/1.1 表示服务器支持的协议版本</p>
+        <p>先将 sortable 设置为 custom，同时在 Table 上监听 sort-change 事件，参数为column，在事件回调中可以获取当前排序的列的字段名(column.prop)和排序顺序(column.order)，从而向接口请求排序后的表格数据<br><a id="more"></a></p>
+<h3 id="sort-change事件"><a href="#sort-change事件" class="headerlink" title="sort-change事件"></a>sort-change事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @sort-change="sortChange"</span></span><br><span class="line">sortChange: <span class="function"><span class="keyword">function</span>(<span class="params">column</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// console.log(column)  当前列</span></span><br><span class="line">    <span class="comment">// console.log(column.prop)  当前列需要排序的数据</span></span><br><span class="line">    <span class="comment">// console.log(column.order) 排序的规则（升序、降序和默认）</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="样式说明"><a href="#样式说明" class="headerlink" title="样式说明"></a>样式说明</h3><p><img src="https://i.loli.net/2019/02/18/5c6a20594d307.png" alt="排序样式"></p>
 <ul>
-<li>200 成功</li>
-<li>301、302 重定向，后面跟一个location头，指明跳转位置</li>
-<li>304 从浏览器缓存加载</li>
-<li>403 权限不够，拒绝访问</li>
-<li>404 资源未找到</li>
-<li>500 服务器内部错误，通常是后端程序发生的错误</li>
+<li>上标(上面的三角形)表示升序，即<code>column.order===&#39;ascending&#39;</code></li>
+<li>下标(下面的三角形)表示降序，即<code>column.order===&#39;descending&#39;</code></li>
+<li>这一列的<code>prop</code>为<code>ticket_all</code>，即<code>column.prop===&#39;ticket_all&#39;</code></li>
 </ul>
-<h4 id="Content-type"><a href="#Content-type" class="headerlink" title="Content-type"></a>Content-type</h4><p>text/html,image/png,application/json等，表明返回类型</p>
-<h4 id="Content-length"><a href="#Content-length" class="headerlink" title="Content-length"></a>Content-length</h4><p>响应body长度</p>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
-<li>发生重定向时包含的头，此时一般没有body</li>
-</ul>
-<h3 id="使用抓包工具"><a href="#使用抓包工具" class="headerlink" title="使用抓包工具"></a>使用抓包工具</h3><ul>
-<li>Fiddler</li>
-</ul>
-<h2 id="应用程序简介"><a href="#应用程序简介" class="headerlink" title="应用程序简介"></a>应用程序简介</h2><h3 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h3><ul>
-<li>交互式命令执行js文件</li>
-<li>node+js文件</li>
-<li>node+文件夹，默认打开文件夹里的index.js，若没有index，则创建一个package.json，注明<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"test"</span>, <span class="comment">// 包的描述</span></span><br><span class="line">    <span class="string">"main"</span>: <span class="string">"./app.js"</span> <span class="comment">// 默认执行的文件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="express框架"><a href="#express框架" class="headerlink" title="express框架"></a>express框架</h3><h4 id="基础目录"><a href="#基础目录" class="headerlink" title="基础目录"></a>基础目录</h4><ul>
-<li>node_modules // 依赖集</li>
-<li>public // 静态文件<ul>
-<li>demo.png</li>
-</ul>
-</li>
-<li>routes // 路由管理<ul>
-<li>users.js // 用户路由</li>
-</ul>
-</li>
-<li>app.js // 全局入口及路由处理</li>
-<li>package.json // 包管理，注明依赖关系等</li>
-</ul>
-<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"app"</span>,</span><br><span class="line">    <span class="string">"main"</span>: <span class="string">"./app.js"</span>,</span><br><span class="line">    <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="string">"express"</span>: <span class="string">"*"</span>, <span class="comment">// *默认使用最新版本</span></span><br><span class="line">        <span class="string">"body-parser"</span>: <span class="string">"*"</span> <span class="comment">// 解析器</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>) <span class="comment">// 使用express框架</span></span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>) <span class="comment">// 解析post提交的内容</span></span><br><span class="line"><span class="keyword">var</span> app = express() <span class="comment">// 应用程序实例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// use可以拦截所有请求数据，不局限于get或post</span></span><br><span class="line">app.use(bodyParser.json()) <span class="comment">// 解析json类型body</span></span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="comment">// 解析query String类型body</span></span><br><span class="line">    extended: <span class="literal">false</span></span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态文件目录</span></span><br><span class="line">app.use(express.static(__dirname + <span class="string">'/public'</span>))</span><br><span class="line"><span class="comment">// url+demo.png，将会去public目录下寻找demo.png，找得到则直接返回文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 路由与业务逻辑</span></span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">    res.send(<span class="string">"Hello,JacksonZhou,here is nodejs!"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 通过/user/list获取用户列表资源</span></span><br><span class="line">app.use(<span class="string">'/user'</span>, <span class="built_in">require</span>(<span class="string">'./routes/users'</span>))</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">80</span>)<span class="comment">// 监听80端口</span></span><br></pre></td></tr></table></figure>
-<h4 id="routes-users-js"><a href="#routes-users-js" class="headerlink" title="routes/users.js"></a>routes/users.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">var</span> router = express.Router()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取用户列表信息</span></span><br><span class="line">router.get(<span class="string">'/list'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">    res.send(<span class="string">'用户列表'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 获取某个用户信息</span></span><br><span class="line">router.get(<span class="string">'/:id'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123; <span class="comment">// rest风格</span></span><br><span class="line">    res.send(<span class="string">'用户 '</span>+req.params.id+<span class="string">' 的信息'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router</span><br></pre></td></tr></table></figure>
-<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><ul>
-<li>req.query 获取查询参数</li>
-<li>req.params 获取 /:id 中的id值</li>
+<p>以上数据在点击时都会拿到。</p>
+<h3 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-table</span> <span class="attr">:data</span>=<span class="string">"userList"</span> @<span class="attr">sort-change</span>=<span class="string">'tableSortChange'</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">el-table-column</span></span></span><br><span class="line"><span class="tag">    <span class="attr">prop</span>=<span class="string">"ticket_all"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">label</span>=<span class="string">"未使用抽奖券数量"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">"160"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">sortable</span>=<span class="string">"custom"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">header-align</span>=<span class="string">"center"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sortChange(column) &#123;</span><br><span class="line">    <span class="keyword">if</span> (column.prop === <span class="string">'ticket_all'</span>) &#123; <span class="comment">// 对该列排序</span></span><br><span class="line">        <span class="keyword">let</span> json = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> (column.order === <span class="string">'descending'</span>) &#123;</span><br><span class="line">          json = &#123;</span><br><span class="line">            order_by: <span class="string">'-ticket_all'</span> <span class="comment">// 后端规定的的降序参数</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          json = &#123;</span><br><span class="line">            order_by: <span class="string">'ticket_all'</span> <span class="comment">// 后端规定的的升序参数</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.getList(json) </span><br><span class="line">        <span class="comment">// 根据请求参数向后台请求排序后的数据</span></span><br><span class="line">        <span class="comment">// axios请求方法请自行实现吧~</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://www.jianshu.com/p/0afef94dfc1d" target="_blank" rel="noopener">Vue之element table 后端排序实现</a></li>
+<li><a href="https://blog.csdn.net/fture_bird/article/details/80916227" target="_blank" rel="noopener">关于Vue ElementUI表格后台排序详解</a></li>
 </ul>
 
       
@@ -574,7 +535,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/express/" rel="tag"><i class="fa fa-tag"></i> express</a>
+            <a href="/tags/element/" rel="tag"><i class="fa fa-tag"></i> element</a>
+          
+            <a href="/tags/表格排序/" rel="tag"><i class="fa fa-tag"></i> 表格排序</a>
           
         </div>
       
@@ -587,8 +550,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/26/vue组件-页面-间传值/" rel="next" title="vue组件(页面)间传值">
-                <i class="fa fa-chevron-left"></i> vue组件(页面)间传值
+              <a href="/2019/02/16/koa菜鸟入门/" rel="next" title="koa菜鸟入门">
+                <i class="fa fa-chevron-left"></i> koa菜鸟入门
               </a>
             
           </div>
@@ -597,8 +560,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/13/mpvue工程中引入iview-weapp/" rel="prev" title="mpvue工程中引入iview weapp">
-                mpvue工程中引入iview weapp <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/18/js基础小结/" rel="prev" title="js基础小结">
+                js基础小结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -868,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#http基础"><span class="nav-number">1.</span> <span class="nav-text">http基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#URL-统一资源定位符"><span class="nav-number">1.1.</span> <span class="nav-text">URL 统一资源定位符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通信过程"><span class="nav-number">1.2.</span> <span class="nav-text">通信过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态码及其他词义"><span class="nav-number">1.3.</span> <span class="nav-text">状态码及其他词义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-1-200-ok"><span class="nav-number">1.3.1.</span> <span class="nav-text">HTTP/1.1 200 ok</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Content-type"><span class="nav-number">1.3.2.</span> <span class="nav-text">Content-type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Content-length"><span class="nav-number">1.3.3.</span> <span class="nav-text">Content-length</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">1.3.4.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用抓包工具"><span class="nav-number">1.4.</span> <span class="nav-text">使用抓包工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用程序简介"><span class="nav-number">2.</span> <span class="nav-text">应用程序简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行程序"><span class="nav-number">2.1.</span> <span class="nav-text">运行程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#express框架"><span class="nav-number">2.2.</span> <span class="nav-text">express框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础目录"><span class="nav-number">2.2.1.</span> <span class="nav-text">基础目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#package-json"><span class="nav-number">2.2.2.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#app-js"><span class="nav-number">2.2.3.</span> <span class="nav-text">app.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#routes-users-js"><span class="nav-number">2.2.4.</span> <span class="nav-text">routes/users.js</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他-1"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-change事件"><span class="nav-number">1.</span> <span class="nav-text">sort-change事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式说明"><span class="nav-number">2.</span> <span class="nav-text">样式说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础用法"><span class="nav-number">3.</span> <span class="nav-text">基础用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
