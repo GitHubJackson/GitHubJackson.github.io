@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="W3ZQlyWlBy" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.png?v=6.5.0">
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.5.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="js中万物皆对象，数组则是一种重要的对象，关于数组的操作很多，作为一个前端攻城狮，应该要能通过灵活应用其内置属性和方法，来解决一系列数组处理问题">
+<meta name="keywords" content="数组,Array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩转js数组">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/玩转js数组/index.html">
+<meta property="og:site_name" content="JacksonZhou&#39;s Blog">
+<meta property="og:description" content="js中万物皆对象，数组则是一种重要的对象，关于数组的操作很多，作为一个前端攻城狮，应该要能通过灵活应用其内置属性和方法，来解决一系列数组处理问题">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-20T16:30:38.259Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="玩转js数组">
+<meta name="twitter:description" content="js中万物皆对象，数组则是一种重要的对象，关于数组的操作很多，作为一个前端攻城狮，应该要能通过灵活应用其内置属性和方法，来解决一系列数组处理问题">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/21/玩转js数组/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>玩转js数组 | JacksonZhou's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <!-- Github-start -->
+      <a href="https://github.com/GitHubJackson/GitHubJackson.github.io" class="github-corner" aria-label="View source on GitHub">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+          </svg>
+        </a>
+        <style>
+        .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+        </style>
+    <!-- Github-end -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JacksonZhou's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />日程表</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/玩转js数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JacksonZhou">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JacksonZhou's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">玩转js数组
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-21 00:29:05 / 修改时间：00:30:38" itemprop="dateCreated datePublished" datetime="2019-03-21T00:29:05+08:00">2019-03-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>js中万物皆对象，数组则是一种重要的对象，关于数组的操作很多，作为一个前端攻城狮，应该要能通过灵活应用其内置属性和方法，来解决一系列数组处理问题<br><a id="more"></a></p>
+<h3 id="数组检查和转化"><a href="#数组检查和转化" class="headerlink" title="数组检查和转化"></a>数组检查和转化</h3><h4 id="检查数组类型"><a href="#检查数组类型" class="headerlink" title="检查数组类型"></a>检查数组类型</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = []</span><br><span class="line"><span class="comment">// 1.ES5的isArray方法</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(arr) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.constructor指向对象实例的构造函数</span></span><br><span class="line">arr.constructor === <span class="built_in">Array</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.instanceof原理同2</span></span><br><span class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.利用Object的原型方法toString判断(必须是Object原型方法，array和function均重写了这个方法)</span></span><br><span class="line"><span class="comment">// toString方法返回反映这个对象的字符串</span></span><br><span class="line"><span class="comment">//可以用来区分各种类型，但是无法判断自定义对象类型，此时可用2.3方法判断自定义类型</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(arr) === <span class="string">'[object Array]'</span></span><br></pre></td></tr></table></figure>
+<h4 id="数组转化问题"><a href="#数组转化问题" class="headerlink" title="数组转化问题"></a>数组转化问题</h4><h5 id="数组转String–join-separator"><a href="#数组转String–join-separator" class="headerlink" title="数组转String–join(separator)"></a>数组转String–join(separator)</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意区别使用空格和空值</span></span><br><span class="line">arr.join(<span class="string">' '</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="String转数组–split-separator"><a href="#String转数组–split-separator" class="headerlink" title="String转数组–split(separator)"></a>String转数组–split(separator)</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据separator来分割字符串,每一项作为数组的一个值</span></span><br><span class="line">str.spilt(<span class="string">','</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="对象转数组"><a href="#对象转数组" class="headerlink" title="对象转数组"></a>对象转数组</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">name</span>:<span class="string">'jacksonzhou'</span>,<span class="attr">age</span>:<span class="number">23</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// [name,age]</span></span><br><span class="line"><span class="built_in">Object</span>.values(obj) <span class="comment">// ['jacksonzhou',23]</span></span><br><span class="line"><span class="built_in">Object</span>.entries(obj) <span class="comment">// [[name,'jacksonzhou'],[age,23]]</span></span><br></pre></td></tr></table></figure>
+<h5 id="数组转对象"><a href="#数组转对象" class="headerlink" title="数组转对象"></a>数组转对象</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(&#123;&#125;,[<span class="number">1</span>,<span class="number">2</span>]) <span class="comment">// 转成&#123;0:1,1:1&#125;</span></span><br><span class="line">&#123;...[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]&#125; <span class="comment">// 转成&#123;0:'a',1:'b',3:'c'&#125;</span></span><br><span class="line"><span class="comment">// es10的api，浏览器暂不支持</span></span><br><span class="line"><span class="built_in">Object</span>.fromEntries([name,<span class="string">'jacksonzhou'</span>],[age,<span class="number">23</span>])</span><br></pre></td></tr></table></figure>
+<h5 id="类数组转化为数组"><a href="#类数组转化为数组" class="headerlink" title="类数组转化为数组"></a>类数组转化为数组</h5><blockquote>
+<p>类数组定义：不具有数组所具有的方法，但具有length属性，其他属性值为非负整数;常见的类数组有arguments对象和DOM方法的返回结果(document.getElementsByTagName())</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用Array原型方法slice</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line"><span class="comment">// from方法将类似数组或可迭代对象创建为数组</span></span><br><span class="line"><span class="built_in">Array</span>.from(<span class="built_in">arguments</span>)</span><br><span class="line"><span class="comment">// ... (扩展运算符)将类数组扩展为一个列表？？（列表实际上是啥？），再定义为数组。</span></span><br><span class="line">[...arguments]</span><br><span class="line"><span class="comment">// 借助对象+indexOf，思路是遍历数组，将每一个值标记为属性，将出现一次的值加入新数组；</span></span><br><span class="line"><span class="comment">//一旦obj.indexOf(i)不为-1，说明重复了，不将它加入新数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="针对数组某项的操作"><a href="#针对数组某项的操作" class="headerlink" title="针对数组某项的操作"></a>针对数组某项的操作</h3><h4 id="判断是否包含值"><a href="#判断是否包含值" class="headerlink" title="判断是否包含值"></a>判断是否包含值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// indexOf</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].indexOf(<span class="number">2</span>) <span class="comment">// 1(其对应索引)，不存在则为-1</span></span><br><span class="line"><span class="comment">// includes</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].includes(<span class="number">2</span>) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// find</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].find(<span class="function"><span class="params">i</span> =&gt;</span> &#123;i===<span class="number">3</span>&#125;) <span class="comment">// 3，无值返回undefined</span></span><br><span class="line"><span class="comment">// findIndex</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].findIndex(<span class="function"><span class="params">i</span> =&gt;</span> &#123;i===<span class="number">3</span>&#125;) <span class="comment">//2,返回索引，无值返回-1</span></span><br></pre></td></tr></table></figure>
+<h4 id="给每一项设置统一值"><a href="#给每一项设置统一值" class="headerlink" title="给每一项设置统一值"></a>给每一项设置统一值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].fill(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="每一项是否满足"><a href="#每一项是否满足" class="headerlink" title="每一项是否满足"></a>每一项是否满足</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].every(<span class="function"><span class="params">i</span> =&gt;</span> &#123;<span class="keyword">return</span> i&gt;<span class="number">2</span>&#125;) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h4 id="有一项满足"><a href="#有一项满足" class="headerlink" title="有一项满足"></a>有一项满足</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].some(<span class="function"><span class="params">i</span> =&gt;</span> &#123;<span class="keyword">return</span> i&gt;<span class="number">2</span>&#125;) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h4 id="计算每一项出现的次数"><a href="#计算每一项出现的次数" class="headerlink" title="计算每一项出现的次数"></a>计算每一项出现的次数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数组遍历+借助对象+属性标记+值计数</span></span><br></pre></td></tr></table></figure>
+<h3 id="过滤数组"><a href="#过滤数组" class="headerlink" title="过滤数组"></a>过滤数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].filter(<span class="function"><span class="params">i</span> =&gt;</span> &#123;<span class="keyword">return</span> i&gt;<span class="number">2</span>&#125;)</span><br><span class="line"><span class="comment">// [3,4,5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><h4 id="Map对象-过滤器filter"><a href="#Map对象-过滤器filter" class="headerlink" title="Map对象+过滤器filter"></a>Map对象+过滤器filter</h4><blockquote>
+<p> Map 数据结构,它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    <span class="keyword">return</span> arr.filter(<span class="function">(<span class="params">a</span>) =&gt;</span> !res.has(a) &amp;&amp; res.set(a, <span class="number">1</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="set-集合-去重"><a href="#set-集合-去重" class="headerlink" title="set(集合)去重"></a>set(集合)去重</h4><blockquote>
+<p>Set 数据结构,它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line">[...new <span class="built_in">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>])]</span><br></pre></td></tr></table></figure>
+<h3 id="扁平化数组"><a href="#扁平化数组" class="headerlink" title="扁平化数组"></a>扁平化数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// flat是ES10的api, n表示维度, n为 Infinity 时维度为无限大</span></span><br><span class="line">[[<span class="number">1</span>,<span class="number">2</span>],<span class="number">3</span>].flat(<span class="number">2</span>) <span class="comment">// [1,2,3]</span></span><br><span class="line">[<span class="number">1</span>,[<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,[...]]]].flat(<span class="literal">Infinity</span>) <span class="comment">// [1,2,3,4,...]</span></span><br></pre></td></tr></table></figure>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sort--关于排序有太多算法知识点，这里只简单实现升序降序，后续再总结相关算法吧~</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>].sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> &#123;a-b&#125;) <span class="comment">// 升序</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>].sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> &#123;b-a&#125;) <span class="comment">// 降序</span></span><br></pre></td></tr></table></figure>
+<h3 id="求最值"><a href="#求最值" class="headerlink" title="求最值"></a>求最值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Math.max/min</span></span><br><span class="line"><span class="built_in">Math</span>.max(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]) <span class="comment">// ...将数组转化为参数列表，供max方法使用</span></span><br><span class="line"><span class="built_in">Math</span>.max.apply(<span class="keyword">this</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]) </span><br><span class="line"><span class="comment">// 利用apply可带数组参数</span></span><br><span class="line"><span class="comment">// === Math.max.call(this,...[1,2,3])</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// reduce--累加器</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>].reduce(<span class="function">(<span class="params">pre,cur</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(pre,cur)</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"><span class="comment">// pre 指上一次return的值，cur指当前值，0指初始值</span></span><br></pre></td></tr></table></figure>
+<h3 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历求和</span></span><br><span class="line"><span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map(<span class="function"><span class="params">i</span> =&gt;</span> &#123;</span><br><span class="line">    sum += i</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(sum)</span><br><span class="line"><span class="comment">// reduce -- 累加器</span></span><br><span class="line"><span class="keyword">let</span> sum = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].reduce(<span class="function">(<span class="params">prev, current</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev + current</span><br><span class="line">&#125;,<span class="number">0</span>) </span><br><span class="line"><span class="comment">// 0 是初始值, prev 是先前return的值，current是当前值</span></span><br></pre></td></tr></table></figure>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// concat--不会改变原数组，返回一个数组副本</span></span><br><span class="line"><span class="keyword">let</span> newArr = arr.concat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="comment">// push--会改变原数组</span></span><br><span class="line">arr.push([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="comment">// ... </span></span><br><span class="line">[...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],...[<span class="number">4</span>,<span class="number">5</span>]]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">------------- 本文结束 <i class="fa fa-paw"></i> 感谢您的阅读 -------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数组/" rel="tag"><i class="fa fa-tag"></i> 数组</a>
+          
+            <a href="/tags/Array/" rel="tag"><i class="fa fa-tag"></i> Array</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/13/axios封装的两种思路/" rel="next" title="axios封装的两种思路">
+                <i class="fa fa-chevron-left"></i> axios封装的两种思路
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">JacksonZhou</p>
+              <p class="site-description motion-element" itemprop="description">Tough times never last, but tough people do.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yourname" title="GitHub &rarr; https://github.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com/yourname" title="Google &rarr; https://plus.google.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/yourname" title="Twitter &rarr; https://twitter.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/yourname" title="FB Page &rarr; https://www.facebook.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组检查和转化"><span class="nav-number">1.</span> <span class="nav-text">数组检查和转化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查数组类型"><span class="nav-number">1.1.</span> <span class="nav-text">检查数组类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组转化问题"><span class="nav-number">1.2.</span> <span class="nav-text">数组转化问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数组转String–join-separator"><span class="nav-number">1.2.1.</span> <span class="nav-text">数组转String–join(separator)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String转数组–split-separator"><span class="nav-number">1.2.2.</span> <span class="nav-text">String转数组–split(separator)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象转数组"><span class="nav-number">1.2.3.</span> <span class="nav-text">对象转数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数组转对象"><span class="nav-number">1.2.4.</span> <span class="nav-text">数组转对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类数组转化为数组"><span class="nav-number">1.2.5.</span> <span class="nav-text">类数组转化为数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对数组某项的操作"><span class="nav-number">2.</span> <span class="nav-text">针对数组某项的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是否包含值"><span class="nav-number">2.1.</span> <span class="nav-text">判断是否包含值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给每一项设置统一值"><span class="nav-number">2.2.</span> <span class="nav-text">给每一项设置统一值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#每一项是否满足"><span class="nav-number">2.3.</span> <span class="nav-text">每一项是否满足</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有一项满足"><span class="nav-number">2.4.</span> <span class="nav-text">有一项满足</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算每一项出现的次数"><span class="nav-number">2.5.</span> <span class="nav-text">计算每一项出现的次数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤数组"><span class="nav-number">3.</span> <span class="nav-text">过滤数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组去重"><span class="nav-number">4.</span> <span class="nav-text">数组去重</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Map对象-过滤器filter"><span class="nav-number">4.1.</span> <span class="nav-text">Map对象+过滤器filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-集合-去重"><span class="nav-number">4.2.</span> <span class="nav-text">set(集合)去重</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扁平化数组"><span class="nav-number">5.</span> <span class="nav-text">扁平化数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">6.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求最值"><span class="nav-number">7.</span> <span class="nav-text">求最值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求和"><span class="nav-number">8.</span> <span class="nav-text">求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并"><span class="nav-number">9.</span> <span class="nav-text">合并</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JacksonZhou</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
