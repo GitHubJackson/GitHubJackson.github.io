@@ -106,25 +106,25 @@
 
 
 
-  <meta name="description" content="最近项目中遇到了这个问题，决定记录一下，可以用 rbga+100%width和100%height 透明层实现">
-<meta name="keywords" content="css,背景图">
+  <meta name="description" content="BFC，Block Formatting Contexts(块级格式化上下文)，可理解为一种具有特性的盒子，在BFC盒子里的元素会有些特性，但不论盒子内元素如何改变，都不会影响到外部元素。">
+<meta name="keywords" content="BFC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS实现背景图片半透明效果">
-<meta property="og:url" content="http://yoursite.com/2018/12/17/CSS实现背景图片半透明效果/index.html">
+<meta property="og:title" content="谈谈BFC机制">
+<meta property="og:url" content="http://yoursite.com/2019/04/01/谈谈BFC机制/index.html">
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
-<meta property="og:description" content="最近项目中遇到了这个问题，决定记录一下，可以用 rbga+100%width和100%height 透明层实现">
+<meta property="og:description" content="BFC，Block Formatting Contexts(块级格式化上下文)，可理解为一种具有特性的盒子，在BFC盒子里的元素会有些特性，但不论盒子内元素如何改变，都不会影响到外部元素。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-31T17:11:44.154Z">
+<meta property="og:updated_time" content="2019-04-01T08:33:03.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS实现背景图片半透明效果">
-<meta name="twitter:description" content="最近项目中遇到了这个问题，决定记录一下，可以用 rbga+100%width和100%height 透明层实现">
+<meta name="twitter:title" content="谈谈BFC机制">
+<meta name="twitter:description" content="BFC，Block Formatting Contexts(块级格式化上下文)，可理解为一种具有特性的盒子，在BFC盒子里的元素会有些特性，但不论盒子内元素如何改变，都不会影响到外部元素。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/17/CSS实现背景图片半透明效果/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/01/谈谈BFC机制/"/>
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>CSS实现背景图片半透明效果 | JacksonZhou's Blog</title>
+  <title>谈谈BFC机制 | JacksonZhou's Blog</title>
   
 
 
@@ -378,7 +378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/CSS实现背景图片半透明效果/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/谈谈BFC机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JacksonZhou">
@@ -395,7 +395,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS实现背景图片半透明效果
+          <h1 class="post-title" itemprop="name headline">谈谈BFC机制
               
             
           </h1>
@@ -420,24 +420,12 @@
                 
               
 
-              <time title="创建时间：2018-12-17 15:54:30" itemprop="dateCreated datePublished" datetime="2018-12-17T15:54:30+08:00">2018-12-17</time>
+              <time title="创建时间：2019-04-01 16:32:00 / 修改时间：16:33:03" itemprop="dateCreated datePublished" datetime="2019-04-01T16:32:00+08:00">2019-04-01</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-01 01:11:44" itemprop="dateModified" datetime="2019-04-01T01:11:44+08:00">2019-04-01</time>
               
             
           </span>
@@ -496,9 +484,27 @@
       
 
       
-        <p>最近项目中遇到了这个问题，决定记录一下，可以用 rbga+100%width和100%height 透明层实现<br><a id="more"></a></p>
-<h5 id="透明层"><a href="#透明层" class="headerlink" title="透明层"></a>透明层</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"less"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">.demo_div &#123;</span></span><br><span class="line"><span class="xml">  <span class="comment">&lt;!--最外部放背景图--&gt;</span></span></span><br><span class="line"><span class="undefined">  background: url("./背景.jpg") no-repeat;</span></span><br><span class="line"><span class="undefined">  background-size:100% 100%;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">  .demo_div_bg&#123;</span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!--最外部div和内容div中间隔一层，无实际意义，仅用于做透明层--&gt;</span></span></span><br><span class="line"><span class="undefined">  	width: 100%;</span></span><br><span class="line"><span class="undefined">    height: 100%;</span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!--利用rgba最后一个参数调节透明度--&gt;</span></span></span><br><span class="line"><span class="undefined">    background: rgba(137,151,177,0.6)</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo_div"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo_div_bg"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="使用css3的filter（过滤器）属性"><a href="#使用css3的filter（过滤器）属性" class="headerlink" title="使用css3的filter（过滤器）属性"></a>使用css3的filter（过滤器）属性</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo_div</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: url(<span class="string">"./背景.jpg"</span>) no-repeat;</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">filter</span>: blur(<span class="number">3px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>BFC，Block Formatting Contexts(块级格式化上下文)，可理解为一种具有特性的盒子，在BFC盒子里的元素会有些特性，但不论盒子内元素如何改变，都不会影响到外部元素。<br><a id="more"></a></p>
+<h3 id="触发条件"><a href="#触发条件" class="headerlink" title="触发条件"></a>触发条件</h3><ul>
+<li>body、根元素html</li>
+<li>float：除 none 以外的值</li>
+<li>position：(absolute、fixed)</li>
+<li>display： inline-block、table-cells、flex</li>
+<li>overflow：除了 visible 以外的值 (hidden、auto、scroll)</li>
+<li>常用：<code>overflow:hidden</code></li>
+</ul>
+<h3 id="BFC特性"><a href="#BFC特性" class="headerlink" title="BFC特性"></a>BFC特性</h3><blockquote>
+<ul>
+<li>在垂直方向上的margin会发生重叠</li>
+<li>在页面上是一个独立的容器,外面的元素和里面的元素互不影响</li>
+<li>BFC元素不会和浮动的元素重叠</li>
+<li>计算BFC元素的高度时,里面浮动元素的高度也会参与计算</li>
+</ul>
+</blockquote>
+<h3 id="BFC用途"><a href="#BFC用途" class="headerlink" title="BFC用途"></a>BFC用途</h3><h4 id="解决上下外边距重叠的问题"><a href="#解决上下外边距重叠的问题" class="headerlink" title="解决上下外边距重叠的问题"></a>解决上下外边距重叠的问题</h4><p>上边div的<code>margin-bottom</code>和下边div的<code>margin-top</code>同时设置，会产生边距重叠的现象。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--由规则1可知，在BFC盒子里会产生上下边距重叠的问题--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--解决方法是分别给上下两个div外套一个BFC盒子--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span> &#123;<span class="attribute">margin</span>: <span class="number">0</span>&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.left-box</span>,<span class="selector-class">.right-box</span> &#123;</span></span><br><span class="line"><span class="undefined">  overflow: hidden;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.left</span>&#123;</span></span><br><span class="line"><span class="undefined">  margin-bottom: 50px;</span></span><br><span class="line"><span class="undefined">  width: 100px;</span></span><br><span class="line"><span class="undefined">  height: 100px;</span></span><br><span class="line"><span class="undefined">  background-color: blue;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.right</span>&#123;</span></span><br><span class="line"><span class="undefined">  margin-top: 50px;</span></span><br><span class="line"><span class="undefined">  width: 100px;</span></span><br><span class="line"><span class="undefined">  height: 100px;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left-box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right-box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p>父级元素添加<code>overflow:hidden</code>，使其成为一个BFC盒子，在计算高度的时候会将浮动的子元素计入，达到清除浮动的效果<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--错误示范，此时普通元素right会被浮动元素left覆盖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span> &#123;<span class="attribute">margin</span>: <span class="number">0</span>&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.left</span>&#123;</span></span><br><span class="line"><span class="undefined">  float: left;</span></span><br><span class="line"><span class="undefined">  width: 100px;</span></span><br><span class="line"><span class="undefined">  height: 100px;</span></span><br><span class="line"><span class="undefined">  background-color: blue;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.right</span>&#123;</span></span><br><span class="line"><span class="undefined">  width: 120px;</span></span><br><span class="line"><span class="undefined">  height: 120px;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--根据规则4可以给浮动元素套一个BFC盒子来清除浮动--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span> &#123;<span class="attribute">margin</span>: <span class="number">0</span>&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="undefined">  overflow: hidden;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.left</span>&#123;</span></span><br><span class="line"><span class="undefined">  float: left;</span></span><br><span class="line"><span class="undefined">  width: 100px;</span></span><br><span class="line"><span class="undefined">  height: 100px;</span></span><br><span class="line"><span class="undefined">  background-color: blue;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.right</span>&#123;</span></span><br><span class="line"><span class="undefined">  width: 120px;</span></span><br><span class="line"><span class="undefined">  height: 120px;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="实现两栏适应布局"><a href="#实现两栏适应布局" class="headerlink" title="实现两栏适应布局"></a>实现两栏适应布局</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--由规则3可实现左定宽右自适应布局--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span> &#123;<span class="attribute">margin</span>: <span class="number">0</span>&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="undefined">  height: 200px;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.left</span>&#123;</span></span><br><span class="line"><span class="undefined">  float: left;</span></span><br><span class="line"><span class="undefined">  width: 200px;</span></span><br><span class="line"><span class="undefined">  height: 100%;</span></span><br><span class="line"><span class="undefined">  background-color: blue;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.right</span>&#123;</span></span><br><span class="line"><span class="undefined">  height: 100%;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">  overflow: hidden;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -532,9 +538,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
-          
-            <a href="/tags/背景图/" rel="tag"><i class="fa fa-tag"></i> 背景图</a>
+            <a href="/tags/BFC/" rel="tag"><i class="fa fa-tag"></i> BFC</a>
           
         </div>
       
@@ -547,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/25/资料盘/" rel="next" title="资料盘">
-                <i class="fa fa-chevron-left"></i> 资料盘
+              <a href="/2019/03/31/css常见布局处理/" rel="next" title="css常见布局处理">
+                <i class="fa fa-chevron-left"></i> css常见布局处理
               </a>
             
           </div>
@@ -556,10 +560,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/17/background-size用法/" rel="prev" title="background-size用法">
-                background-size用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -848,7 +848,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#透明层"><span class="nav-number">1.</span> <span class="nav-text">透明层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用css3的filter（过滤器）属性"><span class="nav-number">2.</span> <span class="nav-text">使用css3的filter（过滤器）属性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件"><span class="nav-number">1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC特性"><span class="nav-number">2.</span> <span class="nav-text">BFC特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC用途"><span class="nav-number">3.</span> <span class="nav-text">BFC用途</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决上下外边距重叠的问题"><span class="nav-number">3.1.</span> <span class="nav-text">解决上下外边距重叠的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除浮动"><span class="nav-number">3.2.</span> <span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现两栏适应布局"><span class="nav-number">3.3.</span> <span class="nav-text">实现两栏适应布局</span></a></li></ol></li></ol></div>
             
 
           </div>
