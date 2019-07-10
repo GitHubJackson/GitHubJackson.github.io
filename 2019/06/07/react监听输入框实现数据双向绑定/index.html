@@ -106,18 +106,18 @@
 
 
 
-  <meta name="description" content="之前接触过react，但不是很熟悉，所以最近在用react做移动蛋糕商城的后台管理系统。vue在输入框的数据双向绑定这块，有很直接的方法，直接使用v-model就可以了，react还得自己搞个监听函数。">
+  <meta name="description" content="之前接触过react，但不是很熟悉，所以最近在用react做移动蛋糕商城的后台管理系统。vue在输入框的数据双向绑定这块，有很直接的方法，直接使用v-model就可以了，react可以通过onChange事件设置监听函数或者借助refs，下面主要是针对onChange设置监听函数的情况。">
 <meta name="keywords" content="input">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react监听输入框实现数据双向绑定">
 <meta property="og:url" content="http://yoursite.com/2019/06/07/react监听输入框实现数据双向绑定/index.html">
 <meta property="og:site_name" content="JacksonZhou&#39;s Blog">
-<meta property="og:description" content="之前接触过react，但不是很熟悉，所以最近在用react做移动蛋糕商城的后台管理系统。vue在输入框的数据双向绑定这块，有很直接的方法，直接使用v-model就可以了，react还得自己搞个监听函数。">
+<meta property="og:description" content="之前接触过react，但不是很熟悉，所以最近在用react做移动蛋糕商城的后台管理系统。vue在输入框的数据双向绑定这块，有很直接的方法，直接使用v-model就可以了，react可以通过onChange事件设置监听函数或者借助refs，下面主要是针对onChange设置监听函数的情况。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-07T09:14:49.888Z">
+<meta property="og:updated_time" content="2019-07-10T04:32:40.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react监听输入框实现数据双向绑定">
-<meta name="twitter:description" content="之前接触过react，但不是很熟悉，所以最近在用react做移动蛋糕商城的后台管理系统。vue在输入框的数据双向绑定这块，有很直接的方法，直接使用v-model就可以了，react还得自己搞个监听函数。">
+<meta name="twitter:description" content="之前接触过react，但不是很熟悉，所以最近在用react做移动蛋糕商城的后台管理系统。vue在输入框的数据双向绑定这块，有很直接的方法，直接使用v-model就可以了，react可以通过onChange事件设置监听函数或者借助refs，下面主要是针对onChange设置监听函数的情况。">
 
 
 
@@ -420,12 +420,24 @@
                 
               
 
-              <time title="创建时间：2019-06-07 17:12:45 / 修改时间：17:14:49" itemprop="dateCreated datePublished" datetime="2019-06-07T17:12:45+08:00">2019-06-07</time>
+              <time title="创建时间：2019-06-07 17:12:45" itemprop="dateCreated datePublished" datetime="2019-06-07T17:12:45+08:00">2019-06-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-10 12:32:40" itemprop="dateModified" datetime="2019-07-10T12:32:40+08:00">2019-07-10</time>
               
             
           </span>
@@ -484,7 +496,7 @@
       
 
       
-        <p>之前接触过react，但不是很熟悉，所以最近在用react做移动蛋糕商城的后台管理系统。vue在输入框的数据双向绑定这块，有很直接的方法，直接使用<code>v-model</code>就可以了，react还得自己搞个监听函数。<br><a id="more"></a></p>
+        <p>之前接触过react，但不是很熟悉，所以最近在用react做移动蛋糕商城的后台管理系统。vue在输入框的数据双向绑定这块，有很直接的方法，直接使用<code>v-model</code>就可以了，react可以通过onChange事件设置监听函数或者借助refs，下面主要是针对onChange设置监听函数的情况。<br><a id="more"></a></p>
 <h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">state = &#123;</span><br><span class="line">    text: &apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">changeInput = (e) =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      text: e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&lt;input onChange=&#123;this.changeInput&#125; defalutValue=&#123;this.state.text&#125;/&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>但是上面的方法存在缺陷，当输入框有好几个的话，那岂不是每次都要监听一次？</p>
 <p>仔细想想，每个<code>input</code>都有一个<code>name</code>属性，可以通过<code>e.target.name</code>获取这个<code>name</code>，而且es6支持属性名为变量名，于是我们可以<strong>让state的数据的属性名对应每个输入框的name属性</strong>，通过<code>[e.target.name]: e.target.value</code>，让其自动识别你输入的框并更新数据，这样不就实现复用了。</p>
